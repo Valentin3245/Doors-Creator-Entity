@@ -1,0 +1,85 @@
+Be=false
+
+    function TraumaSpawn()
+        while true do 
+        
+            wait(200)
+            local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+            -- Create entity
+            local Trauma = Creator.createEntity({
+                CustomName = "Trauma", -- Custom name of your entity
+                Model = "12778057668", -- Can be GitHub file or rbxassetid
+                Speed = 600, -- Percentage, 100 = default Rush speed
+                DelayTime = 5,
+            KillRange=80,-- Time before starting cycles (seconds)
+            HeightOffset = 1,
+            CanKill = true,
+            BreakLights = true,
+                BackwardsMovement = false,
+                FlickerLights = {
+                    true, -- Enabled/Disabled
+                    5, -- Time (seconds)
+                },
+                Cycles = {
+                    Min = 1,
+                    Max = 1,
+                    WaitTime = 2,
+                },
+                CamShake = {
+                    true, -- Enabled/Disabled
+                    {5.5, 50, 0.5, 2}, -- Shake values (don't change if you don't know)
+                    100, -- Shake start distance (from Entity to you)
+                },
+                Jumpscare = {
+                    false, -- Enabled/Disabled
+                    {
+                        Image1 = "nil", -- Image1 url
+                        Image2 = "rbxassetid://11278624160", -- Image2 url
+                        Shake = true,
+                        Sound1 = {
+                            10483790459, -- SoundId
+                            { Volume = 0 }, -- Sound properties
+                        },
+                        Sound2 = {
+                            10483837590, -- SoundId
+                            { Volume = 1000 }, -- Sound properties
+                        },
+                        Flashing = {
+                            true, -- Enabled/Disabled
+                            Color3.fromRGB(255, 255, 255), -- Color
+                        },
+                        Tease = {
+                            true, -- Enabled/Disabled
+                            Min = 1,
+                            Max = 3,
+                        },
+                    },
+                },
+                CustomDialog = {"...", "...","..."}, -- Custom death message
+            })
+
+            -----[[ Advanced ]]-----
+            ------------------------
+
+            -- Run the created entity
+            Creator.runEntity(Trauma)
+        end
+    end
+
+pcall(function()
+local DepthPas = coroutine.wrap(Depth)
+DepthPas()
+end)
+pcall(function()
+    local TraumaPas = coroutine.wrap(TraumaSpawn)   
+    TraumaPas()
+end)
+pcall(function()
+local SmilerPas = coroutine.wrap(SmilerSpawn)
+SmilerPas()
+end)
+pcall(function()
+local VhsSansPas = coroutine.wrap(VhsSansSpawn)
+VhsSansPas()
+end)
